@@ -4,6 +4,13 @@
 rk3506_linux6.1_rkr4_v1/
 rk3506_linux6.1_rkr4_v1.tar.gz
 rk3506_linux6.1_rkr4_v1_*/
+rk3506_linux6.1_bsp/
+
+*.tar.gz
+*.img
+*.ubi
+
+alpine_rootfs
 
 
 # 忽略工程项目文件夹

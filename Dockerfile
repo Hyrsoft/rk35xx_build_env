@@ -62,6 +62,7 @@ RUN dpkg --add-architecture i386 && \
     unzip \
     fakeroot \
     kmod \
+    mtd-utils \
     bsdmainutils \
     ca-certificates \
     sudo \
