@@ -7,11 +7,10 @@ import subprocess
 import shutil
 
 # --- 用户配置 ---
-# !!! 请在这里修改为您要挂载的根文件系统的绝对路径 !!!
+# 在这里修改为您要挂载的根文件系统的绝对路径
 ROOTFS_PATH = "/home/hao/projects/EVB3506_SDK/alpine_rootfs"
 
-# !!! (可选) 如果您需要跨架构 chroot (例如在 x86 电脑上 chroot ARM 系统),
-# 请指定 QEMU 静态二进制文件的路径。如果不需要，请留空 ""。
+# 请指定 QEMU 静态二进制文件的路径。
 # 通常在 /usr/bin/ 目录下, 例如 qemu-aarch64-static, qemu-arm-static 等。
 QEMU_STATIC_BINARY = "/usr/bin/qemu-arm-static"
 # --- 配置结束 ---
@@ -27,9 +26,8 @@ def run_command(command, check=True):
         sys.exit(1)
     except subprocess.CalledProcessError as e:
         print(f"❌ 命令执行失败: {' '.join(e.cmd)} (返回码: {e.returncode})", file=sys.stderr)
-        # 如果需要，可以取消下面两行的注释以查看详细的输出
-        # if e.stdout: print(f"   stdout: {e.stdout.decode()}", file=sys.stderr)
-        # if e.stderr: print(f"   stderr: {e.stderr.decode()}", file=sys.stderr)
+        if e.stdout: print(f"   stdout: {e.stdout.decode()}", file=sys.stderr)
+        if e.stderr: print(f"   stderr: {e.stderr.decode()}", file=sys.stderr)
         if not check: # 如果允许失败，只打印警告
              print("   (警告: 此命令失败，但程序将继续执行)")
         else: # 如果要求成功，则退出
@@ -39,7 +37,7 @@ def run_command(command, check=True):
 def unmount_filesystems():
     """
     按正确顺序卸载所有 chroot 文件系统。
-    该函数设计得非常健壮，会检查每个挂载点是否存在且已挂载。
+    会检查每个挂载点是否存在且已挂载。
     """
     print("\n🧹 开始安全卸载程序...")
 
@@ -98,7 +96,7 @@ def mount_and_chroot():
             command.extend([source, target_path])
             run_command(command)
 
-        # (可选) 复制 QEMU 静态二进制文件
+        # 复制 QEMU 静态二进制文件
         if QEMU_STATIC_BINARY:
             if not os.path.exists(QEMU_STATIC_BINARY):
                 print(f"❌ 错误: QEMU 模拟器 '{QEMU_STATIC_BINARY}' 未在您的主机上找到。", file=sys.stderr)
@@ -120,7 +118,7 @@ def mount_and_chroot():
     except Exception as e:
         print(f"\n❌ 在挂载或 chroot 过程中发生意外错误: {e}", file=sys.stderr)
     finally:
-        # !!! 关键部分：无论 try 块如何退出，这里总会执行 !!!
+        # 无论 try 块如何退出，这里总会执行
         print("\n🚪 已退出 chroot 环境或发生错误。")
         unmount_filesystems()
 
