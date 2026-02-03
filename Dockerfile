@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # 设置时区环境变量
 ENV TZ=Asia/Shanghai
 
-# 启用 i386 (32位) 架构支持，并更新软件源，然后安装所有依赖
+# 启用 i386 (32位) 架构支持，并更新软件源，安装所有依赖
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -61,6 +61,7 @@ RUN dpkg --add-architecture i386 && \
     cpio \
     unzip \
     fakeroot \
+    vim-common \ 
     kmod \
     mtd-utils \
     bsdmainutils \

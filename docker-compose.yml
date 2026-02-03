@@ -1,23 +1,18 @@
 version: '3.8'
 
 services:
-  evb3506-builder:
-    # 使用当前目录下的 Dockerfile 来构建镜像
+  rk35xx-builder:
     build: .
-    # 给构建出的镜像命名
-    image: evb3506-builder-image
-    # 容器的名字
-    container_name: evb3506_build_env
-    # 覆盖 Dockerfile 中的 CMD，确保我们能进入 bash
+    image: rk35xx-builder-image
+    container_name: rk35xx_build_env
     command: /bin/bash
-    # 保持容器在前台运行，并分配一个伪终端
     stdin_open: true
     tty: true
     # 网络模式
     network_mode: host
     # 挂载卷
     volumes:
-      # 将当前整个目录挂载到容器的 /workspace，方便sdk访问config文件夹
+      # 将当前整个目录挂载到容器的 /workspace
       - .:/workspace
     # 设置工作目录，进入容器后会自动切换到这个目录
     working_dir: /workspace

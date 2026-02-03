@@ -7,7 +7,7 @@ import subprocess
 import shutil
 
 # --- 用户配置 ---
-# 在这里修改为您要挂载的根文件系统的绝对路径
+# 在这里修改为要挂载的根文件系统的绝对路径
 ROOTFS_PATH = "/home/hao/projects/EVB3506_SDK/alpine_rootfs"
 
 # 请指定 QEMU 静态二进制文件的路径。
