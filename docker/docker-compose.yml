@@ -12,7 +12,7 @@ services:
     network_mode: host
     # 挂载卷
     volumes:
-      # 将当前整个目录挂载到容器的 /workspace
-      - .:/workspace
+      # 将上一级整个目录挂载到容器的 /workspace
+      - ..:/workspace
     # 设置工作目录，进入容器后会自动切换到这个目录
     working_dir: /workspace

@@ -7,11 +7,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 # 设置时区环境变量
 ENV TZ=Asia/Shanghai
 
-# 启用 i386 (32位) 架构支持，并更新软件源，安装所有依赖
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     autoconf \
+    audomake \
     bison \
     build-essential \
     curl \
@@ -50,6 +50,7 @@ RUN dpkg --add-architecture i386 && \
     python3 \
     python2 \
     python-is-python3 \
+    pkg-config \
     rsync \
     bc \
     device-tree-compiler \
@@ -64,6 +65,7 @@ RUN dpkg --add-architecture i386 && \
     vim-common \ 
     kmod \
     mtd-utils \
+    m4 \
     bsdmainutils \
     ca-certificates \
     sudo \

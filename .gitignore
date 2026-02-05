@@ -8,7 +8,8 @@ rk3506_linux6.1_rkr4_v1/
 rk3506_linux6.1_rkr4_v1.tar.gz
 rk3506_linux6.1_rkr4_v1_*/
 rk3506_linux6.1_bsp/
-luckfox_sdk/
+luckfox_lyra_sdk/
+luckfox_aura_sdk/
 100ask-rk3576_SDK/
 
 *.tar.gz
