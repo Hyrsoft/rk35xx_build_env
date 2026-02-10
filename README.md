@@ -10,6 +10,7 @@ rk3506 (kernel: rockchip-6.1)
 
 rk3576 (kernel: rockchip-6.1)
 - 100ask Dshanpi-A1
+- [Luckfox Omni 系列](./docs/Luckfox%20Omni.md)
 
 rv1126b (kernel: rockchip-6.1)
 - Luckfox Aura 系列

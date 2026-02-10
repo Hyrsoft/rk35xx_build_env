@@ -5,6 +5,7 @@ services:
     build: .
     image: rk35xx-builder-image
     container_name: rk35xx_build_env
+    privileged: true
     command: /bin/bash
     stdin_open: true
     tty: true

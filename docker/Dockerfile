@@ -11,7 +11,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     autoconf \
-    audomake \
+    automake \
     bison \
     build-essential \
     curl \
@@ -34,6 +34,7 @@ RUN dpkg --add-architecture i386 && \
     libtool \
     libx11-dev:i386 \
     libxml2-utils \
+    live-build \
     linux-libc-dev:i386 \
     markdown \
     patch \
@@ -42,6 +43,7 @@ RUN dpkg --add-architecture i386 && \
     tree \
     u-boot-tools \
     wget \
+    qemu-user-static \
     x11proto-core-dev \
     xsltproc \
     zip \
