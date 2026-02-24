@@ -37,6 +37,8 @@ RUN dpkg --add-architecture i386 && \
     live-build \
     linux-libc-dev:i386 \
     markdown \
+    openssh-client \
+    openssh-server \
     patch \
     texinfo \
     tofrodos \
